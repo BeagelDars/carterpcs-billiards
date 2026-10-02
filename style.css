@@ -1,0 +1,376 @@
+/* ==========================================================================
+   Carter Billiards - Minimalist Light Theme
+   ========================================================================== */
+
+:root {
+  --bg: #f9fafb;
+  --card-bg: #ffffff;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --border: #1f2937;
+  --border-subtle: #e5e7eb;
+  --accent: #f59e0b;
+  --accent-blue: #3b82f6;
+  --felt: #108e5c;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  overflow-x: hidden;
+}
+
+.minimal-app {
+  width: 100%;
+  max-width: 1020px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.minimal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0px var(--border);
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.15);
+}
+
+.logo-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.logo-text strong {
+  color: var(--accent-blue);
+  font-weight: 800;
+  margin-left: 2px;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+}
+
+.turn-pill {
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  background: var(--accent);
+  color: #111;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.turn-pill.bot-turn {
+  background: #a78bfa;
+  color: #fff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-btn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background: #ffffff;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--border);
+  transition: all 0.1s ease;
+}
+
+.mini-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--border);
+}
+
+.primary-btn {
+  background: #ffdd44;
+}
+
+.primary-btn:hover {
+  background: #ffd622;
+}
+
+/* ==========================================================================
+   Match Status Bar
+   ========================================================================== */
+.match-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0px var(--border);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.player-side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.player-side.active-player .player-label {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
+.bot-side.active-player .bot-label {
+  color: #7c3aed;
+  text-decoration: underline;
+}
+
+.player-label {
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.bot-label {
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.group-label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.balls-tray {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 22px;
+}
+
+.tray-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.tray-dot.potted {
+  opacity: 0.2;
+  filter: grayscale(1);
+}
+
+.vs-divider {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  background: #f3f4f6;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   Table & Canvas Area
+   ========================================================================== */
+.canvas-container {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  border: 3px solid var(--border);
+  background: #3d2113;
+  box-shadow: 4px 5px 0px var(--border);
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+canvas#pool-canvas {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  display: block;
+  border-radius: 12px;
+  border: 2px solid #1a1512;
+  cursor: crosshair;
+  background-color: var(--felt);
+}
+
+/* Toast for ball in hand */
+.in-hand-toast {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #facc15;
+  color: #111;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0px var(--border);
+  display: none;
+  z-index: 10;
+}
+
+.in-hand-toast.show {
+  display: block;
+}
+
+/* Power bar under table */
+.power-bar-wrap {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.power-bar-wrap.active {
+  opacity: 1;
+}
+
+.power-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: #ef4444;
+  transition: width 0.04s linear;
+}
+
+/* Footer Hint */
+.minimal-footer {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Minimal Modal
+   ========================================================================== */
+.minimal-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.minimal-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-box {
+  background: #ffffff;
+  border: 3px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 6px 6px 0px var(--border);
+  padding: 28px;
+  text-align: center;
+  max-width: 320px;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-face {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 2.5px solid var(--border);
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.15);
+}
+
+#modal-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+#modal-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carter Billiards</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="minimal-app">
+    <!-- Sleek Minimal Header -->
+    <header class="minimal-header">
+      <div class="logo-group">
+        <img src="assets/carter.png" alt="Carter" class="header-avatar">
+        <span class="logo-text">CARTER<strong>POOL</strong></span>
+      </div>
+
+      <div class="header-center">
+        <div id="turn-badge" class="turn-pill">YOUR TURN</div>
+      </div>
+
+      <div class="header-actions">
+        <button id="sound-btn" class="mini-btn" title="Toggle Sound">🔊</button>
+        <button id="restart-btn" class="mini-btn primary-btn">New Game</button>
+      </div>
+    </header>
+
+    <!-- Minimal Match Status Bar -->
+    <div class="match-bar">
+      <div class="player-side" id="player-status">
+        <span class="player-label">YOU</span>
+        <span class="group-label" id="player-group">Open</span>
+        <div class="balls-tray" id="player-tray"></div>
+      </div>
+
+      <div class="vs-divider">VS</div>
+
+      <div class="player-side bot-side" id="bot-status">
+        <div class="balls-tray" id="bot-tray"></div>
+        <span class="group-label" id="bot-group">Open</span>
+        <span class="player-label bot-label">BOT</span>
+      </div>
+    </div>
+
+    <!-- Table Canvas Container -->
+    <main class="canvas-container">
+      <canvas id="pool-canvas"></canvas>
+
+      <!-- Minimal Ball-in-Hand Notice -->
+      <div id="ball-in-hand" class="in-hand-toast">
+        Click anywhere on table to place Cue Ball
+      </div>
+
+      <!-- Minimal Power Indicator -->
+      <div id="power-bar-wrap" class="power-bar-wrap">
+        <div id="power-bar-fill" class="power-bar-fill"></div>
+      </div>
+    </main>
+
+    <!-- Subtle Controls Hint -->
+    <footer class="minimal-footer">
+      <span>Aim with mouse &bull; Drag back cue to shoot</span>
+    </footer>
+
+    <!-- Minimal Victory / Game Over Modal -->
+    <div id="game-modal" class="minimal-modal">
+      <div class="modal-box">
+        <img src="assets/carter.png" alt="Carter" class="modal-face">
+        <h2 id="modal-title">VICTORY!</h2>
+        <p id="modal-desc">You sank the 8-Ball!</p>
+        <button id="modal-restart" class="mini-btn primary-btn modal-btn">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
